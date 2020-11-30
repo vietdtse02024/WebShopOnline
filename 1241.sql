@@ -614,8 +614,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`Id`, `Username`, `Password`, `Name`, `CreateDate`, `RoleId`, `Avatar`, `Email`, `Phone`, `Address`) VALUES
-(25, 'admin', 'c4ca4238a0b923820dcc509a6f75849b', 'admin', '2016-03-18', 1, 'avatar_name25-.jpg', 'scodeweb2016@gmail.com', '0945802194', 'hanoi'),
-(26, 'user', 'c4ca4238a0b923820dcc509a6f75849b', 'user', '2016-03-18', 2, 'avatar_name26-user.png', 'user@user.com', '0945802194', 'hanoi');
+(25, 'admin', 'c4ca4238a0b923820dcc509a6f75849b', 'admin', '2016-03-18', 1, 'avatar_name25-.jpg', 'admin', '0967136222', 'hanoi');
 
 -- --------------------------------------------------------
 

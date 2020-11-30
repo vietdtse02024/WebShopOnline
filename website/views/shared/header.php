@@ -48,7 +48,7 @@ $parent_menus = get_all('categories',$options_parent_menu);
             <div class="top_left">
                 <form style="margin-bottom:0em " action="http://localhost/ShopOnline/search/" method="get"
                       onsubmit="return false;">
-                    <input type=search name='q' id='q' value="Nhập từ khóa..." onfocus="this.value = '';"
+                    <input type=search name='q' value="Nhập từ khóa..." onfocus="this.value = '';"
                            onblur="if (this.value == '') {this.value = 'Nhập từ khóa...';}">
                     <input type="submit" value="Tìm kiếm"
                            onclick="window.location.href=this.form.action + this.form.q.value;" class="input-search"/>
