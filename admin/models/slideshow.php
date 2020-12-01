@@ -23,5 +23,5 @@ function slideshow_delete($id) {
         unlink($image5);
     }
     $sql = "DELETE FROM slideshow WHERE Id=$id";
-    mysql_query($sql) or die(mysql_error());
+    mysqli_query($GLOBALS['conn'],$sql) or die(mysqli_error($GLOBALS['conn']));
 }

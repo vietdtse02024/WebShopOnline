@@ -11,5 +11,5 @@ function subcategories_delete($id) {
         products_delete($product['id']);
     }
     $sql = "DELETE FROM subcategory WHERE Id=$id";
-    mysql_query($sql) or die(mysql_error());
+    mysqli_query($GLOBALS['conn'],$sql) or die(mysqli_error($GLOBALS['conn']));
 }

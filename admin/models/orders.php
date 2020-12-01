@@ -4,13 +4,13 @@ function order_detail($oid) {
 			FROM order_detail
 			INNER JOIN product ON product.Id=order_detail.ProductId
 			WHERE order_detail.OrderId=$oid";
-    $query = mysql_query($sql) or die(mysql_error());
+    $query = mysqli_query($GLOBALS['conn'],$sql) or die(mysqli_error($GLOBALS['conn']));
     $data = array();
-    if (mysql_num_rows($query) > 0) {
-        while ($row = mysql_fetch_assoc($query)) {
+    if (mysqli_num_rows($query) > 0) {
+        while ($row = mysqli_fetch_assoc($query)) {
             $data[] = $row;
         }
-        mysql_free_result($query);
+        mysqli_free_result($query);
     }
     return $data;
 }

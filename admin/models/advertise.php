@@ -7,5 +7,5 @@ function advertise_delete($id) {
         unlink($image);
     }
     $sql = "DELETE FROM advertise WHERE Id=$id";
-    mysql_query($sql) or die(mysql_error());
+    mysqli_query($GLOBALS['conn'],$sql) or die(mysqli_error($GLOBALS['conn']));
 }

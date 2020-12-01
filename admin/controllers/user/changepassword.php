@@ -8,10 +8,10 @@ if (isset($_POST['id'])) {
 }
 function changePassword($id, $newpassword,$currentPassword ) {
     $sql = "Update user SET Password='$newpassword' WHERE Id='$id' AND Password = '$currentPassword'";
-    $query = mysql_query($sql) or die(mysql_error());
-    $rows =  mysql_affected_rows();
+    $query = mysqli_query($GLOBALS['conn'],$sql) or die(mysqli_error($GLOBALS['conn']));
+    $rows =  mysqli_affected_rows($GLOBALS['conn']);
     if($rows<>1){
-        return "Thay đổi mật khẩu không thành công. Mật khẩu hiện tại của bạn không đúng." . mysql_error();
+        return "Thay đổi mật khẩu không thành công. Mật khẩu hiện tại của bạn không đúng." . mysqli_error($GLOBALS['conn']);
     }
     else return "Bạn đã đổi mật khẩu thành công. Bạn có thể reset lại trình duyệt và đăng nhập lại hệ thống !";
 }

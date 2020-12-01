@@ -5,7 +5,7 @@ require "function.php";
 function save($table, $data = array()) {
     $values = array();
     foreach ($data as $key => $value) {
-        $value = mysql_real_escape_string($value);
+        $value = mysqli_real_escape_string($GLOBALS['conn'], $value);
         $values[] = "`$key`='$value'";
     }
     $Id = intval($data['Id']);
@@ -15,39 +15,39 @@ function save($table, $data = array()) {
         $sql = "INSERT INTO `$table` SET " . implode(',', $values);
     }
 
-    mysql_query($sql) or die(mysql_error());
+    mysqli_query($GLOBALS['conn'],$sql) or die(mysqli_error($GLOBALS['conn']));
 
-    $Id = ($Id>0) ? $Id : mysql_insert_id();
+    $Id = ($Id>0) ? $Id : mysqli_insert_id($GLOBALS['conn']);
     return $Id;
 }
 
 function delete($table, $id) {
     $id = intval($id);
     $sql = "DELETE FROM `$table` WHERE id=$id";
-    mysql_query($sql) or die(mysql_error());
+    mysqli_query($GLOBALS['conn'],$sql) or die(mysqli_error($GLOBALS['conn']));
 }
 
 function get_a_record($table, $id, $select = '*') {
     //truy v?n
     $id = intval($id);
     $sql = "SELECT $select FROM `$table` WHERE id=$id";
-    $query = mysql_query($sql) or die(mysql_error());
+    $query = mysqli_query($GLOBALS['conn'],$sql) or die(mysqli_error($GLOBALS['conn']));
     $data = NULL;
-    if (mysql_num_rows($query) > 0) {
-        $data = mysql_fetch_assoc($query);
-        mysql_free_result($query);
+    if (mysqli_num_rows($query) > 0) {
+        $data = mysqli_fetch_assoc($query);
+        mysqli_free_result($query);
     }
     return $data;
 }
 
 function get_a_record_by_alias($table, $alias, $select = '*') {
-    $alias = mysql_real_escape_string($alias);
+    $alias = mysqli_real_escape_string($GLOBALS['conn'],$alias);
     $sql = "SELECT $select FROM `$table` WHERE alias='$alias'";
-    $query = mysql_query($sql) or die(mysql_error());
+    $query = mysqli_query($GLOBALS['conn'],$sql)  or die(mysqli_error($GLOBALS['conn']));
     $data = NULL;
-    if (mysql_num_rows($query) > 0) {
-        $data = mysql_fetch_assoc($query);
-        mysql_free_result($query);
+    if (mysqli_num_rows($query) > 0) {
+        $data = mysqli_fetch_assoc($query);
+        mysqli_free_result($query);
     }
     return $data;
 }
@@ -59,12 +59,12 @@ function Selecct_a_record($table, $options = array(), $select = '*') {
     $limit = isset($options['offset']) && isset($options['limit']) ? 'LIMIT ' . $options['offset'] . ',' . $options['limit'] : '';
 
     $sql = "SELECT $select FROM `$table` $where $order_by $limit";
-    $query = mysql_query($sql) or die(mysql_error());
+    $query = mysqli_query($GLOBALS['conn'],$sql)  or die(mysqli_error($GLOBALS['conn']));
 
     $data = NULL;
-    if (mysql_num_rows($query) > 0) {
-        $data = mysql_fetch_assoc($query);
-        mysql_free_result($query);
+    if (mysqli_num_rows($query) > 0) {
+        $data = mysqli_fetch_assoc($query);
+        mysqli_free_result($query);
     }
     return $data;
 }
@@ -76,14 +76,14 @@ function get_all($table, $options = array()) {
     $limit = isset($options['offset']) && isset($options['limit']) ? 'LIMIT ' . $options['offset'] . ',' . $options['limit'] : '';
 
     $sql = "SELECT $select FROM `$table` $where $order_by $limit";
-    $query = mysql_query($sql) or die(mysql_error());
+    $query = mysqli_query($GLOBALS['conn'],$sql)  or die(mysqli_error($GLOBALS['conn']));
 
     $data = array();
-    if (mysql_num_rows($query) > 0) {
-        while ($row = mysql_fetch_assoc($query)) {
+    if (mysqli_num_rows($query) > 0) {
+        while ($row = mysqli_fetch_assoc($query)) {
             $data[] = $row;
         }
-        mysql_free_result($query);
+        mysqli_free_result($query);
     }
 
     return $data;
@@ -92,8 +92,8 @@ function get_all($table, $options = array()) {
 function get_total($table, $options = array()) {
     $where = isset($options['where']) ? 'WHERE ' . $options['where'] : '';
     $sql = "SELECT COUNT(*) as total FROM `$table` $where";
-    $query = mysql_query($sql) or die(mysql_error());
-    $row = mysql_fetch_assoc($query);
+    $query = mysqli_query($GLOBALS['conn'],$sql)  or die(mysqli_error($GLOBALS['conn']));
+    $row = mysqli_fetch_assoc($query);
     return $row['total'];
 }
 

@@ -9,7 +9,7 @@ if (!$product) {
 
 function updateCountView($id){
     $sql = "Update product set TotalView = TotalView + 1 WHERE id =$id";
-    return mysql_query($sql);
+    return mysqli_query($GLOBALS['conn'],$sql);
 }
 $title = $product['Name'];
 
