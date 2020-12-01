@@ -8,7 +8,7 @@ $parent_menus = get_all('categories',$options_parent_menu);
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <base href="http://localhost/ShopOnline/"/>
+    <base href="<?=PATH_URL?>/"/>
     <meta charset="UTF-8">
     <title><?php echo isset($title) ? $title : 'eCommerce - Fashion Shop'; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,7 +46,7 @@ $parent_menus = get_all('categories',$options_parent_menu);
             <div class="top_right" style="padding-left: 2em;">
             </div>
             <div class="top_left">
-                <form style="margin-bottom:0em " action="http://localhost/ShopOnline/search/" method="get"
+                <form style="margin-bottom:0em " action="<?=PATH_URL?>/search/" method="get"
                       onsubmit="return false;">
                     <input type=search name='q' value="Nhập từ khóa..." onfocus="this.value = '';"
                            onblur="if (this.value == '') {this.value = 'Nhập từ khóa...';}">

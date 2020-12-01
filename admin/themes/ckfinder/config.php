@@ -60,7 +60,7 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseUrl = '/ShopOnline/admin/themes/upload/';
+$baseUrl = PATH_URL.'/admin/themes/upload/';
 
 /*
 $baseDir : the path to the local directory (in the server) which points to the

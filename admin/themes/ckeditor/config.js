@@ -8,12 +8,12 @@ CKEDITOR.editorConfig = function( config ) {
 	 config.language = 'vi';
     config.enterMode = CKEDITOR.ENTER_BR;
 	// config.uiColor = '#AADC6E';
-    config.filebrowserBrowseUrl = '/ShopOnline/admin/themes/ckfinder/ckfinder.html';
-    config.filebrowserImageBrowseUrl = '/ShopOnline/admin/themes/ckfinder/ckfinder.html?type=Images';
-    config.filebrowserFlashBrowseUrl = '/ShopOnline/admin/themes/ckfinder/ckfinder.html?type=Flash';
-    config.filebrowserUploadUrl = '/ShopOnline/admin/themes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files';
-    config.filebrowserImageUploadUrl = '/ShopOnline/admin/themes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';
-    config.filebrowserFlashUploadUrl = '/ShopOnline/admin/themes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
+    config.filebrowserBrowseUrl = './admin/themes/ckfinder/ckfinder.html';
+    config.filebrowserImageBrowseUrl = './admin/themes/ckfinder/ckfinder.html?type=Images';
+    config.filebrowserFlashBrowseUrl = './admin/themes/ckfinder/ckfinder.html?type=Flash';
+    config.filebrowserUploadUrl = './admin/themes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files';
+    config.filebrowserImageUploadUrl = './admin/themes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';
+    config.filebrowserFlashUploadUrl = './admin/themes/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
 
 };
 

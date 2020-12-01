@@ -25,9 +25,9 @@ if (!empty($_POST)) {
 	//data
 	$title = 'Đặt hàng thành công';
 	//load view
-    header( "refresh:5;url=http://localhost/ShopOnline/home" );
+    header( "refresh:5;url=".PATH_URL."/home" );
     echo '<div style="text-align: center;padding: 20px 10px;">Cảm ơn bạn đã đặt hàng của shop. Shop sẽ confirm lại với bạn trong thời gian sớm nhất để xác nhận đơn hàng.<br>
-                    Trình duyệt sẽ tự động chuyển về trang chủ sau 5s, hoặc bạn có thể click <a href="http://localhost/ShopOnline/home">here</a>.</div>';
+                    Trình duyệt sẽ tự động chuyển về trang chủ sau 5s, hoặc bạn có thể click <a href='.PATH_URL.'"/home">here</a>.</div>';
 } else {
 	header('location:.');
 }
